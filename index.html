@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nelligen Ridge Estate | Premium Lot 7 Showcase</title>
+    <style>
+        :root {
+            --primary-green: #1C352D;
+            --accent-gold: #D4AF37;
+            --text-dark: #2F3E46;
+            --bg-light: #F8F9FA;
+            --white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        /* Premium Banner Hero Section */
+        .hero-banner-container {
+            width: 100%;
+            background-color: var(--primary-green);
+            text-align: center;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .hero-banner-img {
+            width: 100%;
+            max-width: 1400px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 80px;
+        }
+
+        @media (max-width: 992px) {
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .showcase-image {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        /* Gallery Cards */
+        .gallery-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+
+        .gallery-caption {
+            padding: 20px;
+            font-weight: 600;
+            color: var(--primary-green);
+            text-align: center;
+            font-size: 1.1rem;
+            border-top: 3px solid var(--accent-gold);
+        }
+
+        .section-title {
+            color: var(--primary-green);
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #718096;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.1rem;
+        }
+
+        .highlight-badge {
+            background-color: var(--accent-gold);
+            color: var(--primary-green);
+            padding: 5px 15px;
+            font-weight: bold;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            color: var(--accent-gold);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Interactive Progression Section */
+        .progression-section {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            margin-bottom: 80px;
+        }
+
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .tab-btn {
+            background: none;
+            border: 2px solid var(--primary-green);
+            color: var(--primary-green);
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background-color: var(--primary-green);
+            color: var(--white);
+        }
+
+        .progression-display {
+            text-align: center;
+        }
+
+        .progression-img {
+            max-width: 100%;
+            height: auto;
+            max-height: 550px;
+            border-radius: 6px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            display: none;
+            margin: 0 auto;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .progression-img.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--primary-green);
+            color: var(--white);
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 8px;
+        }
+
+        .cta-btn {
+            background-color: var(--accent-gold);
+            color: var(--primary-green);
+            padding: 15px 40px;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 25px;
+            text-transform: uppercase;
+            transition: background 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: #f1c40f;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Section 1: Top Visual Hero Banner -->
+    <div class="hero-banner-container">
+        <img src="58f599e3-46e5-4a24-abae-580a5b895697.png" alt="Build Your Dream, Live Your Lifestyle" class="hero-banner-img">
+    </div>
+
+    <div class="container">
+        
+        <!-- Section 2: Executive Overview Map Grid -->
+        <div class="grid-2">
+            <div>
+                <span class="highlight-badge">PREMIUM SITE DEVELOPMENT</span>
+                <h2>Masterplanned Country Luxury</h2>
+                <p>Nestled beautifully within the pristine ridges of Nelligen Ridge Estate, Lot 7 stands out as a flagship release featuring 2.9 Hectares of optimal building ground.</p>
+                
+                <ul class="feature-list">
+                    <li><strong>Acreage Scale:</strong> Generous 2.9 Ha parcel allowing immense freedom of orientation and perimeter utility.</li>
+                    <li><strong>Infrastructure Ready:</strong> Seamless approach via fully engineered, high-quality masterplanned access roads.</li>
+                    <li><strong>Natural Insulation:</strong> Flanked by deep structural timberlines providing unmatched wind protection and acoustic privacy.</li>
+                </ul>
+            </div>
+            <div>
+                <!-- Displaying the updated master plan -->
+                <img src="lot marketing - lot 7_2.png" alt="Nelligen Ridge Estate Master Plan" class="showcase-image">
+            </div>
+        </div>
+
+        <!-- Section 3: Interactive Progression View (The Land Journey) -->
+        <div class="progression-section">
+            <h2 class="section-title">Site Development Stages</h2>
+            <p class="section-subtitle">Demonstrate property transparency to stakeholders by toggling the physical evolution of Lot 7 from raw land to complete vision.</p>
+            
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="showStage('raw-land', event)">1. Cleared Acreage Site</button>
+                <button class="tab-btn" onclick="showStage('slab-phase', event)">2. Active Construction Phase</button>
+                <button class="tab-btn" onclick="showStage('completed-render', event)">3. Completed Architectural Vision</button>
+            </div>
+
+            <div class="progression-display">
+                <!-- Raw Land State -->
+                <img id="raw-land" src="gallery-pool.jpg.png" alt="Lot 7 Raw Cleared Land" class="progression-img active">
+                
+                <!-- Active Civil/Slab State -->
+                <img id="slab-phase" src="gallery-alfresco.jpg.png" alt="Lot 7 Active Slab Footprint" class="progression-img">
+                
+                <!-- Final Ideal Vision Rendering -->
+                <img id="completed-render" src="a12ae558-84cb-437a-b866-7990989efbe1.png" alt="Lot 7 Completed Lifestyle Render" class="progression-img">
+            </div>
+        </div>
+
+        <!-- Section 4: Lifestyle Expansion Potential Gallery -->
+        <h2 class="section-title">Acreage Design Capabilities</h2>
+        <p class="section-subtitle">Maximize buyer engagement by mapping out peripheral estate assets that comfortably fit within the 2.9 Ha boundary lines.</p>
+        
+        <div class="grid-3">
+            <!-- Gallery Item 1 -->
+            <div class="gallery-card">
+                <img src="a12ae558-84cb-437a-b866-7990989efbe1.png" alt="Luxury Residence and Pool View" class="gallery-img">
+                <div class="gallery-caption">Integrated Pool & Alfresco Living</div>
+            </div>
+            
+            <!-- Gallery Item 2 -->
+            <div class="gallery-card">
+                <img src="gallery - shed.jpg.png" alt="Acreage Shed and Infrastructure View" class="gallery-img">
+                <div class="gallery-caption">Custom Machinery & Lifestyle Shed</div>
+            </div>
+            
+            <!-- Gallery Item 3 -->
+            <div class="gallery-card">
+                <img src="gallery-alfresco.jpg.png" alt="Aerial Site Elevation" class="gallery-img">
+                <div class="gallery-caption">Elevated Northerly Aspect</div>
+            </div>
+        </div>
+
+        <!-- Section 5: Lead Generation Hook -->
+        <div class="cta-section">
+            <h2>Secure the Future of Nelligen Ridge</h2>
+            <p>This layout demonstrates to development partners how high-impact real-world visuals accelerate premium client acquisitions.</p>
+            <button class="cta-btn" onclick="alert('Demo Feature: Premium investor brochure downloaded.')">Download Lot 7 Prospectus</button>
+        </div>
+
+    </div>
+
+    <!-- JavaScript to manage site development phase selector -->
+    <script>
+        function showStage(stageId, event) {
+            // Hide all images
+            const images = document.querySelectorAll('.progression-img');
+            images.forEach(img => img.classList.remove('active'));
+
+            // Deactivate all buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Activate chosen stage components
+            document.getElementById(stageId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
